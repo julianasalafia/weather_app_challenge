@@ -17,6 +17,10 @@ class DarkTheme {
         fontWeight: FontWeight.w600,
       ),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.transparent,
+    ),
+    canvasColor: Colors.transparent,
     textTheme: GoogleFonts.poppinsTextTheme(),
   );
 
