@@ -27,40 +27,13 @@ class HomePage extends StatelessWidget {
           ),
           leftIcon: backIconButton,
         ),
-        body: SizedBox(
+        body: const SizedBox(
           width: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      height: 90,
-                      width: 321,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            AppColors.lightPurple,
-                            AppColors.lightMidPurple,
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 200,
-                      top: -20,
-                      child: Image.asset(
-                        'assets/images/cloudy_weather.png',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    const CustomBottomBar(),
-                  ],
-                ),
-              ),
+              Text(''),
+              CustomBottomBar(),
             ],
           ),
         ),
