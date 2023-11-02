@@ -42,10 +42,6 @@ class DayForecastPage extends StatelessWidget {
               children: [
                 const SizedBox(width: 10),
                 TemperatureSmallWidget(theme: theme),
-                const SizedBox(width: 10),
-                TemperatureSmallWidget(theme: theme),
-                const SizedBox(width: 10),
-                TemperatureSmallWidget(theme: theme),
               ],
             ),
             const SizedBox(height: 30),
@@ -61,7 +57,6 @@ class DayForecastPage extends StatelessWidget {
                 const SizedBox(width: 10),
                 StateTemperatureSmallWidget(theme: theme),
                 const SizedBox(width: 10),
-                StateTemperatureSmallWidget(theme: theme),
               ],
             ),
           ],
