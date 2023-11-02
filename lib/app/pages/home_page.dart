@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/themes/dark/dark_theme.dart';
 import 'package:weather_app_challenge/app/utils/constants.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-
-import '../utils/app_colors.dart';
 import '../widgets/custom_bottom_bar.dart';
+import '../widgets/home_page_weather_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,41 +26,19 @@ class HomePage extends StatelessWidget {
           ),
           leftIcon: backIconButton,
         ),
-        body: SizedBox(
+        body: const SizedBox(
           width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(height: 10),
               Expanded(
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      height: 90,
-                      width: 321,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            AppColors.lightPurple,
-                            AppColors.lightMidPurple,
-                          ],
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 200,
-                      top: -20,
-                      child: Image.asset(
-                        'assets/images/cloudy_weather.png',
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ],
+                child: HomePageWeatherWidget(
+                  image: 'assets/images/cloudy_weather.png',
+                  state: 'Ceará',
                 ),
               ),
-              const CustomBottomBar(),
+              CustomBottomBar(),
             ],
           ),
         ),
