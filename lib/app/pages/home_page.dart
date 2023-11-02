@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBarWidget(
           isNext: false,
-          onPreviousTap: () {
+          onPreviousTap: () async {
             // TODO
           },
           title: Text(

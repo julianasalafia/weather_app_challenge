@@ -9,9 +9,9 @@ void main() {
     const responseApi = mockResult;
 
     // act
-    final result = InformacoesDoTempoResult.fromJson(responseApi);
+    final result = InformacoesTempoResult.fromJson(responseApi);
 
     // assert
-    expect(result, isA<InformacoesDoTempoResult>());
+    expect(result, isA<InformacoesTempoResult>());
   });
 }

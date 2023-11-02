@@ -1,10 +1,10 @@
-class InformacoesDoTempoResult {
+class InformacoesTempoResult {
   final List<Estado> estados;
 
-  const InformacoesDoTempoResult._({required this.estados});
+  const InformacoesTempoResult._({required this.estados});
 
-  factory InformacoesDoTempoResult.fromJson(dynamic json) {
-    return InformacoesDoTempoResult._(
+  factory InformacoesTempoResult.fromJson(dynamic json) {
+    return InformacoesTempoResult._(
       estados: Estado.fromListJson(json['result']['estados']),
     );
   }
