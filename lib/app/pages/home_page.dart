@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/themes/dark/dark_theme.dart';
-import 'package:weather_app_challenge/app/utils/app_colors.dart';
 import 'package:weather_app_challenge/app/utils/constants.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
 
@@ -32,7 +31,9 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(''),
+              Column(
+                children: [],
+              ),
               CustomBottomBar(),
             ],
           ),
