@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             width: double.infinity,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: store.informacoesTempoResult?.estados.length,
+              itemCount: store.informacoesTempoResult?.estados.length ?? 0,
               itemBuilder: (BuildContext context, int index) {
                 return HomePageWeatherWidget(
                   // TODO: Mapear o tempo para as imagens
