@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/themes/dark/dark_theme.dart';
 import 'package:weather_app_challenge/app/utils/constants.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
+import 'package:weather_app_challenge/app/widgets/custom_bottom_bar.dart';
 import 'package:weather_app_challenge/store/tempo_store.dart';
 import '../widgets/home_page_weather_widget.dart';
 
@@ -45,20 +46,24 @@ class _HomePageState extends State<HomePage> {
           leftIcon: backIconButton,
         ),
         body: Consumer<TempoStore>(builder: (context, store, widget) {
-          return SizedBox(
-            width: double.infinity,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: store.informacoesTempoResult?.estados.length ?? 0,
-              itemBuilder: (BuildContext context, int index) {
-                return HomePageWeatherWidget(
-                  // TODO: Mapear o tempo para as imagens
-                  image: 'assets/images/cloudy_weather.png',
-                  state:
-                      store.informacoesTempoResult?.estados[index].estado ?? '',
-                );
-              },
-            ),
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: store.informacoesTempoResult?.estados.length ?? 0,
+                  itemBuilder: (BuildContext context, int index) {
+                    return HomePageWeatherWidget(
+                      // TODO: Mapear o tempo para as imagens
+                      image: 'assets/images/cloudy_weather.png',
+                      state:
+                          store.informacoesTempoResult?.estados[index].estado ??
+                              '',
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         }),
       ),
