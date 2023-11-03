@@ -6,16 +6,19 @@ class HttpServiceDio implements IHttpService {
   final Dio dio;
 
   HttpServiceDio()
-      : dio = Dio(BaseOptions(
-          baseUrl: 'https://parseapi.back4app.com/parse/functions/',
-          responseType: ResponseType.json,
-          headers: {
-            'X-Parse-Application-Id':
-                'nAX5VLA1WnL3qkzuYnlh4tzUqS9NJuKGL13L4vas',
-            'X-Parse-REST-API-Key': '3Q8wzFGU6isxalfOyagYkz2bu0lCTcrtgJ7Q4iD7',
-            'X-Parse-Revocable-Session': '1',
-          },
-        ));
+      : dio = Dio(
+          BaseOptions(
+            baseUrl: 'https://parseapi.back4app.com/parse/functions/',
+            responseType: ResponseType.json,
+            headers: {
+              'X-Parse-Application-Id':
+                  'nAX5VLA1WnL3qkzuYnlh4tzUqS9NJuKGL13L4vas',
+              'X-Parse-REST-API-Key':
+                  '3Q8wzFGU6isxalfOyagYkz2bu0lCTcrtgJ7Q4iD7',
+              'X-Parse-Revocable-Session': '1',
+            },
+          ),
+        );
 
   @override
   Future<http.Response> post({
