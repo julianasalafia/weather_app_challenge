@@ -19,10 +19,10 @@ class HomePageWeatherWidget extends StatelessWidget {
       children: [
         Positioned(
           bottom: 10,
-          left: 10,
+          left: 20,
           child: Container(
             height: 90,
-            width: 321,
+            width: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               gradient: const LinearGradient(
@@ -37,8 +37,8 @@ class HomePageWeatherWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 45,
-          left: 15,
+          top: 40,
+          left: 30,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,17 +53,19 @@ class HomePageWeatherWidget extends StatelessWidget {
             ],
           ),
         ),
-        Align(
-          alignment: Alignment.topRight,
-          child: Container(
-            height: 114,
-            width: 145,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/cloudy_weather.png'),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Container(
+              height: 114,
+              width: 145,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/cloudy_weather.png'),
+                ),
               ),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 15),
           ),
         ),
       ],
