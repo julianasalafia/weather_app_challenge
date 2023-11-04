@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/pages/home_page.dart';
 import 'package:weather_app_challenge/app/services/http/http_service_dio.dart';
 import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
 import 'package:weather_app_challenge/app/themes/app_theme.dart';
+import 'package:weather_app_challenge/main_page.dart';
 
 import '../store/tempo_store.dart';
 
@@ -29,7 +29,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomePage(),
+        home: const MainPage(),
         theme: AppTheme.dark,
       ),
     );
