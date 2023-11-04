@@ -7,7 +7,13 @@ import '../widgets/weather_temperature_widget.dart';
 
 class WeekForecastPage extends StatelessWidget {
   final VoidCallback onItemTapped;
-  const WeekForecastPage({super.key, required this.onItemTapped});
+  final VoidCallback onDayTapped;
+
+  const WeekForecastPage({
+    super.key,
+    required this.onItemTapped,
+    required this.onDayTapped,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +38,15 @@ class WeekForecastPage extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: state.dias.length,
                   itemBuilder: (BuildContext context, int index) {
+                    final day = state.dias.entries.toList()[index];
                     return DayWeatherTemperatureWidget(
-                        theme: theme, dia: state.dias.entries.toList()[index]!);
+                      theme: theme,
+                      dia: day,
+                      onTap: () {
+                        store.onSelectDay(day);
+                        onDayTapped();
+                      },
+                    );
                   }),
             ),
           ],

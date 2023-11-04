@@ -9,6 +9,7 @@ class TempoStore with ChangeNotifier {
   InformacoesTempoResult? informacoesTempoResult;
   TempoResult? tempoResult;
   Estado? selectedState;
+  MapEntry<DiasSemanaEnum, Dia>? selectedDay;
 
   TempoStore({required this.service});
 
@@ -17,6 +18,7 @@ class TempoStore with ChangeNotifier {
     informacoesTempoResult = InformacoesTempoResult.fromJson(result.data);
     if (selectedState == null && informacoesTempoResult != null) {
       selectedState = informacoesTempoResult?.estados.first;
+      selectedDay = selectedState!.dias.entries.first;
     }
 
     notifyListeners();
@@ -31,5 +33,11 @@ class TempoStore with ChangeNotifier {
 
   void onSelectState(Estado state) {
     selectedState = state;
+    notifyListeners();
+  }
+
+  void onSelectDay(MapEntry<DiasSemanaEnum, Dia> day) {
+    selectedDay = day;
+    notifyListeners();
   }
 }
