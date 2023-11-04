@@ -25,7 +25,10 @@ class InformationWidget extends StatelessWidget {
             color: AppColors.purplePureDark.withOpacity(0.23),
             shape: BoxShape.circle,
           ),
-          child: Image.asset(image),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Image.asset(image),
+          ),
         ),
         const SizedBox(height: 10),
         Text(

@@ -23,7 +23,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget {
             ),
           ),
           Image.asset(
-            'assets/images/cloudy_weather.png',
+            'assets/images/cloudy.png',
             height: 40,
             width: 55,
           ),

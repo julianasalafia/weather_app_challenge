@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
-
 import '../utils/constants.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final VoidCallback onTapButton;
+  final VoidCallback? onTapRefreshButton;
+  final int index;
+
   const AppBarWidget({
     super.key,
-    required this.onPreviousTap,
     required this.title,
-    required this.leftIcon,
-    this.rightIcon,
-    this.isNext = false,
-    this.onNextTap,
+    required this.onTapButton,
+    required this.index,
+    this.onTapRefreshButton,
   });
-
-  final Widget title;
-  final VoidCallback onPreviousTap;
-  final VoidCallback? onNextTap;
-  final bool isNext;
-  final String leftIcon;
-  final String? rightIcon;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -30,31 +26,58 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         child: Column(
           children: [
             const SizedBox(height: kSizedBoxHeight),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Stack(
               children: [
-                IconButton(
-                  icon: Image.asset(
-                    leftIcon,
-                    width: kIconSize,
-                    height: kIconSize,
-                  ),
-                  onPressed: onPreviousTap,
-                ),
-                title,
-                isNext
-                    ? IconButton(
-                        icon: Image.asset(
-                          rightIcon ?? '',
-                          width: kIconSize,
-                          height: kIconSize,
-                        ),
-                        onPressed: onPreviousTap,
-                      )
-                    : const SizedBox(
+                if (index == 2) ...[
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: Image.asset(
+                        menuIconButton,
                         width: kIconSize,
                         height: kIconSize,
-                      )
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                  Container(
+                    height: 45,
+                    alignment: Alignment.center,
+                    child: Text(
+                      title,
+                      style: theme.appBarTheme.titleTextStyle,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      icon: Image.asset(
+                        reloadIconButton,
+                        width: kIconSize,
+                        height: kIconSize,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+                if (index != 2) ...[
+                  IconButton(
+                    icon: Image.asset(
+                      backIconButton,
+                      width: kIconSize,
+                      height: kIconSize,
+                    ),
+                    onPressed: () {},
+                  ),
+                  Container(
+                    height: 45,
+                    alignment: Alignment.center,
+                    child: Text(
+                      title,
+                      style: theme.appBarTheme.titleTextStyle,
+                    ),
+                  ),
+                ],
               ],
             ),
           ],

@@ -19,8 +19,8 @@ class TemperatureDateWidget extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        const SizedBox(height: 20),
-        Image.asset('assets/images/cloudy_weather.png'),
+        const SizedBox(height: 10),
+        Image.asset('assets/images/cloudy.png'),
         Text(
           '23º',
           style: theme.appBarTheme.titleTextStyle?.copyWith(
@@ -31,6 +31,7 @@ class TemperatureDateWidget extends StatelessWidget {
           '26 de Maio de 2023',
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 12,
+            height: 0.1,
           ),
         ),
       ],

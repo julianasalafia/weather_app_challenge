@@ -31,7 +31,7 @@ class WeatherTemperatureWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('assets/images/cloudy_weather.png'),
+            Image.asset('assets/images/cloudy.png'),
             Text(
               '23º',
               style: theme.appBarTheme.titleTextStyle?.copyWith(fontSize: 55),

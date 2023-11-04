@@ -60,9 +60,10 @@ class HomePageWeatherWidget extends StatelessWidget {
             child: Container(
               height: 114,
               width: 145,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/cloudy_weather.png'),
+                  fit: BoxFit.fill,
+                  image: AssetImage(image),
                 ),
               ),
             ),
