@@ -13,6 +13,7 @@ class WeekForecastPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Consumer<TempoStore>(builder: (context, store, _) {
+      final state = store.selectedState!;
       return Scaffold(
         appBar: AppBarWidget(
           title: '7 Dias',
@@ -21,13 +22,20 @@ class WeekForecastPage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text(store.selectedState?.getTodayName() ?? '',
-                style: theme.appBarTheme.titleTextStyle),
+            Text(state.getTodayName(), style: theme.appBarTheme.titleTextStyle),
             WeatherTemperatureWidget(
-                theme: theme,
-                periodo: store.selectedState!.getToday()!.getPeriodoNow()!),
+                theme: theme, periodo: state.getToday()!.getPeriodoNow()!),
             const SizedBox(height: 50),
-            DayWeatherTemperatureWidget(theme: theme),
+            // DayWeatherTemperatureWidget(theme: theme),
+            Expanded(
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: state.dias.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return DayWeatherTemperatureWidget(
+                        theme: theme, dia: state.dias.entries.toList()[index]!);
+                  }),
+            ),
           ],
         ),
       );

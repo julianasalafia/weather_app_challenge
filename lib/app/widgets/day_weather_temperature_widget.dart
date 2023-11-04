@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 
-class DayWeatherTemperatureWidget extends StatelessWidget {
+import '../models/informacoes_tempo_result.dart';
+
+class DayWeatherTemperatureWidget extends StatelessWidget
+    with InformacoesTempoHelper {
+  final MapEntry<DiasSemanaEnum, Dia> dia;
+
   const DayWeatherTemperatureWidget({
     super.key,
     required this.theme,
+    required this.dia,
   });
 
   final ThemeData theme;
@@ -16,26 +23,26 @@ class DayWeatherTemperatureWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Segunda',
+            dia.key.nome,
             style: theme.appBarTheme.titleTextStyle?.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w400,
             ),
           ),
           Image.asset(
-            'assets/images/cloudy.png',
+            getImagePath(dia.value.periodos.values.toList()[1].tempo),
             height: 40,
             width: 55,
           ),
           Text(
-            'Nublado',
+            dia.value.periodos.values.toList()[1].tempo,
             style: theme.appBarTheme.titleTextStyle?.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),
           Text(
-            '31º',
+            '${dia.value.periodos.values.toList()[1].graus}º',
             style: theme.appBarTheme.titleTextStyle?.copyWith(
               fontSize: 16,
               fontWeight: FontWeight.w500,
