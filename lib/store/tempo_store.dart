@@ -10,6 +10,7 @@ class TempoStore with ChangeNotifier {
   TempoResult? tempoResult;
   Estado? selectedState;
   MapEntry<DiasSemanaEnum, Dia>? selectedDay;
+  bool isRefreshing = false;
 
   TempoStore({required this.service});
 
@@ -38,6 +39,16 @@ class TempoStore with ChangeNotifier {
 
   void onSelectDay(MapEntry<DiasSemanaEnum, Dia> day) {
     selectedDay = day;
+    notifyListeners();
+  }
+
+  Future<void> refresh() async {
+    isRefreshing = true;
+    notifyListeners();
+
+    await Future.delayed(const Duration(seconds: 2));
+    loadInformacaoTempoResult();
+    isRefreshing = false;
     notifyListeners();
   }
 }

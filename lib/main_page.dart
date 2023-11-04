@@ -38,7 +38,10 @@ class _MainPageState extends State<MainPage> {
           onItemTapped: () => _onItemTapped(0),
           onDayTapped: () => _onItemTapped(2),
         ),
-        DayForecastPage(onItemTapped: () => _onItemTapped(1)),
+        DayForecastPage(
+          onItemTapped: () => _onItemTapped(1),
+          onPeriodTap: () => _onItemTapped(3),
+        ),
         InformationsPage(onItemTapped: () => _onItemTapped(2)),
       ],
     );

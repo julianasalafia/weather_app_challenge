@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 
-class TemperatureDateWidget extends StatelessWidget {
+import '../models/informacoes_tempo_result.dart';
+
+class TemperatureDateWidget extends StatelessWidget
+    with InformacoesTempoHelper {
+  final ThemeData theme;
+  final MapEntry<DiasSemanaEnum, Dia> dia;
+
   const TemperatureDateWidget({
     super.key,
     required this.theme,
+    required this.dia,
   });
-
-  final ThemeData theme;
 
   @override
   Widget build(BuildContext context) {
+    final periodo = dia.value.getPeriodoNow();
     return Column(
       children: [
         const SizedBox(height: 20),
         Text(
-          'Segunda',
+          dia.key.nome,
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 12,
           ),
         ),
         const SizedBox(height: 10),
-        Image.asset('assets/images/cloudy.png'),
+        Image.asset(getImagePath(periodo.value.tempo)),
         Text(
-          '23º',
+          '${periodo.value.graus}º',
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 81,
           ),
         ),
         Text(
-          '26 de Maio de 2023',
+          DateTime.now().toString(),
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 12,
             height: 0.1,

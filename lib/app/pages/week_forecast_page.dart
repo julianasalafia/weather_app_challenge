@@ -30,7 +30,7 @@ class WeekForecastPage extends StatelessWidget {
           children: [
             Text(state.getTodayName(), style: theme.appBarTheme.titleTextStyle),
             WeatherTemperatureWidget(
-                theme: theme, periodo: state.getToday()!.getPeriodoNow()!),
+                theme: theme, periodo: state.getToday()!.getPeriodoNow().value),
             const SizedBox(height: 50),
             // DayWeatherTemperatureWidget(theme: theme),
             Expanded(

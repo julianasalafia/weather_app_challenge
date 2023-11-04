@@ -75,13 +75,14 @@ enum DiasSemanaEnum {
 }
 
 enum PeriodosEnum {
-  manha(id: 0),
-  tarde(id: 1),
-  noite(id: 2);
+  manha(id: 0, nome: 'Manhã'),
+  tarde(id: 1, nome: 'Tarde'),
+  noite(id: 2, nome: 'Noite');
 
   final int id;
+  final String nome;
 
-  const PeriodosEnum({required this.id});
+  const PeriodosEnum({required this.id, required this.nome});
 }
 
 class Dia {
@@ -103,28 +104,19 @@ class Dia {
     return result;
   }
 
-  Periodo? getPeriodoNow() {
+  MapEntry<PeriodosEnum, Periodo> getPeriodoNow() {
     final hourNow = DateTime.now().hour;
 
     if (hourNow >= 6 && hourNow <= 12) {
-      final periodo = periodos[PeriodosEnum.manha];
+      final periodo = periodos.entries.toList()[0];
       return periodo;
     } else if (hourNow >= 13 && hourNow <= 18) {
-      final periodo = periodos[PeriodosEnum.tarde];
+      final periodo = periodos.entries.toList()[1];
       return periodo;
     } else {
-      final periodo = periodos[PeriodosEnum.noite];
+      final periodo = periodos.entries.toList()[2];
       return periodo;
     }
-  }
-
-  static List<Dia> fromListJson(dynamic list) {
-    final List<Dia> result = [];
-
-    for (var o in list) {
-      result.add(Dia.fromJson(o));
-    }
-    return result;
   }
 }
 
@@ -143,14 +135,5 @@ class Periodo {
       // tratar nulo aqui
       graus: json['graus']?.toString() ?? '0',
     );
-  }
-
-  static List<Periodo> fromListJson(dynamic list) {
-    final List<Periodo> result = [];
-
-    for (var o in list) {
-      result.add(Periodo.fromJson(o));
-    }
-    return result;
   }
 }

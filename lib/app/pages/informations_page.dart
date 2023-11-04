@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
 import '../../store/tempo_store.dart';
 import '../widgets/information_widget.dart';
 
@@ -30,6 +31,11 @@ class _InformationsPageState extends State<InformationsPage>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBarWidget(
+        title: 'Informações',
+        onTapButton: widget.onItemTapped,
+        index: 3,
+      ),
       body: Consumer<TempoStore>(
         builder: (context, store, widget) {
           return Column(

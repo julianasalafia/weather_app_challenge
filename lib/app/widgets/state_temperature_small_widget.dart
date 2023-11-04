@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import '../models/informacoes_tempo_result.dart';
 import '../utils/app_colors.dart';
 
-class StateTemperatureSmallWidget extends StatelessWidget {
-  final String state;
+class StateTemperatureSmallWidget extends StatelessWidget
+    with InformacoesTempoHelper {
+  final Estado state;
+  final ThemeData theme;
 
-  StateTemperatureSmallWidget({
+  const StateTemperatureSmallWidget({
     super.key,
     required this.theme,
     required this.state,
   });
 
-  final ThemeData theme;
-
   @override
   Widget build(BuildContext context) {
+    final day = state.getToday();
+    final period = day!.periodos.values.first;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Column(
@@ -38,21 +43,21 @@ class StateTemperatureSmallWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Image.asset(
-                    'assets/images/cloudy.png',
+                    getImagePath(period.tempo),
                     width: 37,
                     height: 30,
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    state,
+                    state.estado,
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    '9ºC',
+                    '${period.graus}º',
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),

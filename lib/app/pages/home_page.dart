@@ -48,7 +48,8 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
                             .informacoesTempoResult?.estados[index]
                             .getToday()
                             ?.getPeriodoNow()
-                            ?.tempo ??
+                            .value
+                            .tempo ??
                         ''),
                     state:
                         store.informacoesTempoResult?.estados[index].estado ??
