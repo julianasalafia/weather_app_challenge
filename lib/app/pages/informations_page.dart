@@ -5,7 +5,8 @@ import '../../store/tempo_store.dart';
 import '../widgets/information_widget.dart';
 
 class InformationsPage extends StatefulWidget {
-  const InformationsPage({super.key});
+  final VoidCallback onItemTapped;
+  const InformationsPage({super.key, required this.onItemTapped});
 
   @override
   State<InformationsPage> createState() => _InformationsPageState();

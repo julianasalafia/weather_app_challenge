@@ -8,12 +8,16 @@ class TempoStore with ChangeNotifier {
   final IHttpService service;
   InformacoesTempoResult? informacoesTempoResult;
   TempoResult? tempoResult;
+  Estado? selectedState;
 
   TempoStore({required this.service});
 
   Future<void> loadInformacaoTempoResult() async {
     final result = await service.post(url: 'informacoes_do_tempo');
     informacoesTempoResult = InformacoesTempoResult.fromJson(result.data);
+    if (selectedState == null && informacoesTempoResult != null) {
+      selectedState = informacoesTempoResult?.estados.first;
+    }
 
     notifyListeners();
   }
@@ -23,5 +27,9 @@ class TempoStore with ChangeNotifier {
     tempoResult = TempoResult.fromJson(result.data);
 
     notifyListeners();
+  }
+
+  void onSelectState(Estado state) {
+    selectedState = state;
   }
 }

@@ -42,6 +42,13 @@ class Estado {
     return dia;
   }
 
+  String getTodayName() {
+    final today = DateTime.now().weekday;
+    final dia = DiasSemanaEnum.values[today - 1].nome;
+
+    return dia;
+  }
+
   static List<Estado> fromListJson(dynamic list) {
     final List<Estado> result = [];
 
@@ -53,17 +60,18 @@ class Estado {
 }
 
 enum DiasSemanaEnum {
-  segunda(id: 0),
-  terca(id: 1),
-  quarta(id: 2),
-  quinta(id: 3),
-  sexta(id: 4),
-  sabado(id: 5),
-  domingo(id: 6);
+  segunda(id: 0, nome: 'Segunda'),
+  terca(id: 1, nome: 'Terça'),
+  quarta(id: 2, nome: 'Quarta'),
+  quinta(id: 3, nome: 'Quinta'),
+  sexta(id: 4, nome: 'Sexta'),
+  sabado(id: 5, nome: 'Sábado'),
+  domingo(id: 6, nome: 'Domingo');
 
   final int id;
+  final String nome;
 
-  const DiasSemanaEnum({required this.id});
+  const DiasSemanaEnum({required this.id, required this.nome});
 }
 
 enum PeriodosEnum {

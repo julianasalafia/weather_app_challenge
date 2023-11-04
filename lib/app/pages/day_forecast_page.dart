@@ -7,8 +7,10 @@ import '../widgets/temperature_date_widget.dart';
 import '../widgets/temperature_small_widget.dart';
 
 class DayForecastPage extends StatelessWidget {
+  final VoidCallback onItemTapped;
   const DayForecastPage({
     super.key,
+    required this.onItemTapped,
   });
 
   @override

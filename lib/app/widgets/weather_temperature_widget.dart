@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/models/informacoes_tempo_result.dart';
 
 import '../utils/app_colors.dart';
 
-class WeatherTemperatureWidget extends StatelessWidget {
+class WeatherTemperatureWidget extends StatelessWidget
+    with InformacoesTempoHelper {
+  final Periodo periodo;
+  final ThemeData theme;
+
   const WeatherTemperatureWidget({
     super.key,
     required this.theme,
+    required this.periodo,
   });
-
-  final ThemeData theme;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +36,9 @@ class WeatherTemperatureWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('assets/images/cloudy.png'),
+            Image.asset(getImagePath(periodo.tempo)),
             Text(
-              '23º',
+              '${periodo.graus}º',
               style: theme.appBarTheme.titleTextStyle?.copyWith(fontSize: 55),
             ),
           ],

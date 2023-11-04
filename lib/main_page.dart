@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import 'package:weather_app_challenge/store/tempo_store.dart';
 import 'app/pages/day_forecast_page.dart';
 import 'app/pages/home_page.dart';
 import 'app/pages/informations_page.dart';
 import 'app/pages/week_forecast_page.dart';
 import 'app/themes/dark/dark_theme.dart';
 import 'app/utils/app_colors.dart';
-import 'app/utils/constants.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -20,45 +16,36 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
-  final pages = [
-    const HomePage(),
-    const WeekForecastPage(),
-    DayForecastPage(),
-    const InformationsPage(),
-  ];
-
-  final titles = [
-    'Search for City',
-    '7 Dias',
-    'Espírito Santo',
-    'Informações',
-  ];
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  final pages = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    pages.clear();
+    pages.addAll(
+      [
+        HomePage(
+          onStateTapped: () => _onItemTapped(1),
+        ),
+        WeekForecastPage(onItemTapped: () => _onItemTapped(0)),
+        DayForecastPage(onItemTapped: () => _onItemTapped(1)),
+        InformationsPage(onItemTapped: () => _onItemTapped(2)),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       decoration: DarkTheme.darkGradient,
       child: Scaffold(
-        appBar: AppBarWidget(
-          onTapRefreshButton: () =>
-              context.watch<TempoStore>().informacoesTempoResult,
-          onTapButton: () {
-            _onItemTapped(_selectedIndex - 1);
-
-            if (_selectedIndex < 0) {
-              _selectedIndex = 0;
-            }
-          },
-          title: titles[_selectedIndex],
-          index: _selectedIndex,
-        ),
         body: pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           onTap: _onItemTapped,

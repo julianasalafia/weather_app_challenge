@@ -67,7 +67,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                       width: kIconSize,
                       height: kIconSize,
                     ),
-                    onPressed: () {},
+                    onPressed: onTapButton,
                   ),
                   Container(
                     height: 45,

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
 import 'package:weather_app_challenge/store/tempo_store.dart';
 import '../widgets/home_page_weather_widget.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final VoidCallback onStateTapped;
+  const HomePage({super.key, required this.onStateTapped});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -27,8 +29,13 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBarWidget(
+        title: 'Search for City',
+        onTapButton: () {},
+        index: 0,
+      ),
       backgroundColor: Colors.transparent,
-      body: Consumer<TempoStore>(builder: (context, store, widget) {
+      body: Consumer<TempoStore>(builder: (context, store, _) {
         return Column(
           children: [
             Expanded(
@@ -46,6 +53,11 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
                     state:
                         store.informacoesTempoResult?.estados[index].estado ??
                             '',
+                    onTap: () {
+                      store.onSelectState(
+                          store.informacoesTempoResult!.estados[index]);
+                      widget.onStateTapped();
+                    },
                   );
                 },
               ),
