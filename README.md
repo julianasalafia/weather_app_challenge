@@ -9,6 +9,14 @@ Deve ser desenvolvido um Aplicativo utilizando Flutter. Para esse desenvolviment
 **Regras:** 
 1) O candidato pode utilizar a arquitetura de sua escolha. 
 2) Deve ser utilizado o injetor de dependência PROVIDER. 
-3) Os valores não podem ser passados por parâmetro, deve ser gerenciado pelo gerenciador de estado e injetor de dependência. 
+3) Os valores não podem ser passados por parâmetro, deve ser gerenciado pelo gerenciador de estado e injetor de dependência.
 
-![weatherapp](https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/weather_app.gif)
+
+## Solução
+
+<p float = "center"> 
+<img src="https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/home_forecast_page.png" width="235" />
+<img src="https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/week_forecast_page.png" width="235" />
+<img src="https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/day_forecast_page.png" width="235" />
+<img src="https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/information_page.png" width="235" />
+</p>
