@@ -27,7 +27,13 @@ class TemperatureDateWidget extends StatelessWidget
           ),
         ),
         const SizedBox(height: 10),
-        Image.asset(getImagePath(periodo.value.tempo)),
+        SizedBox(
+          height: 150,
+          child: Image.asset(
+            getImagePath(periodo.value.tempo),
+            fit: BoxFit.contain,
+          ),
+        ),
         Text(
           '${periodo.value.graus}º',
           style: theme.appBarTheme.titleTextStyle?.copyWith(

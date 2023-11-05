@@ -36,7 +36,8 @@ class WeatherTemperatureWidget extends StatelessWidget
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(getImagePath(periodo.tempo)),
+            SizedBox(
+                height: 150, child: Image.asset(getImagePath(periodo.tempo))),
             Text(
               '${periodo.graus}º',
               style: theme.appBarTheme.titleTextStyle?.copyWith(fontSize: 55),

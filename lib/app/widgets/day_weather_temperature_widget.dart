@@ -23,32 +23,42 @@ class DayWeatherTemperatureWidget extends StatelessWidget
       child: InkWell(
         onTap: onTap,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              dia.key.nome,
-              style: theme.appBarTheme.titleTextStyle?.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+            Expanded(
+              flex: 2,
+              child: Text(
+                dia.key.nome,
+                style: theme.appBarTheme.titleTextStyle?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
-            Image.asset(
-              getImagePath(dia.value.periodos.values.toList()[1].tempo),
-              height: 40,
-              width: 55,
-            ),
-            Text(
-              dia.value.periodos.values.toList()[1].tempo,
-              style: theme.appBarTheme.titleTextStyle?.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+            Expanded(
+              flex: 2,
+              child: Image.asset(
+                getImagePath(dia.value.periodos.values.toList()[1].tempo),
+                height: 40,
+                width: 55,
               ),
             ),
-            Text(
-              '${dia.value.periodos.values.toList()[1].graus}º',
-              style: theme.appBarTheme.titleTextStyle?.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+            Expanded(
+              flex: 2,
+              child: Text(
+                dia.value.periodos.values.toList()[1].tempo,
+                style: theme.appBarTheme.titleTextStyle?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                '${dia.value.periodos.values.toList()[1].graus}º',
+                style: theme.appBarTheme.titleTextStyle?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ],

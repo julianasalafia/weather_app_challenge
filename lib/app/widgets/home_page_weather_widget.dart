@@ -65,7 +65,7 @@ class HomePageWeatherWidget extends StatelessWidget {
                 width: 145,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    fit: BoxFit.fill,
+                    fit: BoxFit.contain,
                     image: AssetImage(image),
                   ),
                 ),

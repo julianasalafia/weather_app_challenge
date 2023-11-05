@@ -49,6 +49,7 @@ class StateTemperatureSmallWidget extends StatelessWidget
                   ),
                 ),
                 Expanded(
+                  flex: 2,
                   child: Text(
                     state.estado,
                     style: theme.appBarTheme.titleTextStyle
