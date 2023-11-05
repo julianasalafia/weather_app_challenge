@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_challenge/app/extensions/date_time_extension.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 
 import '../models/informacoes_tempo_result.dart';
@@ -41,7 +42,7 @@ class TemperatureDateWidget extends StatelessWidget
           ),
         ),
         Text(
-          DateTime.now().toString(),
+          DateTime.now().toPTBR(),
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 12,
             height: 0.1,

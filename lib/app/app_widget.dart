@@ -5,8 +5,7 @@ import 'package:weather_app_challenge/app/services/http/http_service_dio.dart';
 import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
 import 'package:weather_app_challenge/app/themes/app_theme.dart';
 import 'package:weather_app_challenge/main_page.dart';
-
-import '../store/tempo_store.dart';
+import '../controller/tempo_controller.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -22,7 +21,7 @@ class AppWidget extends StatelessWidget {
       providers: [
         Provider<IHttpService>(create: (_) => HttpServiceDio()),
         ChangeNotifierProvider(
-          create: (context) => TempoStore(
+          create: (context) => TempoController(
             service: context.read(),
           ),
         ),

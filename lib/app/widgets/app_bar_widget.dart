@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/store/tempo_store.dart';
+import 'package:weather_app_challenge/controller/tempo_controller.dart';
 import '../utils/constants.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -27,7 +27,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: kPaddingHorizontal,
         ),
-        child: Consumer<TempoStore>(builder: (context, store, _) {
+        child: Consumer<TempoController>(builder: (context, store, _) {
           return Column(
             children: [
               const SizedBox(height: kSizedBoxHeight),

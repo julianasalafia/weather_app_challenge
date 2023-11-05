@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../../store/tempo_store.dart';
+import '../../controller/tempo_controller.dart';
 import '../widgets/information_widget.dart';
 
 class InformationsPage extends StatefulWidget {
@@ -15,15 +15,15 @@ class InformationsPage extends StatefulWidget {
 
 class _InformationsPageState extends State<InformationsPage>
     with InformacoesTempoHelper {
-  late TempoStore tempoStore;
+  late TempoController tempoController;
 
   @override
   void initState() {
     super.initState();
-    tempoStore = context.read();
+    tempoController = context.read();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      tempoStore.loadInformacaoTempoResult();
-      tempoStore.loadTempoResult();
+      tempoController.loadInformacaoTempoResult();
+      tempoController.loadTempoResult();
     });
   }
 
@@ -36,14 +36,14 @@ class _InformationsPageState extends State<InformationsPage>
         onTapButton: widget.onItemTapped,
         index: 3,
       ),
-      body: Consumer<TempoStore>(
+      body: Consumer<TempoController>(
         builder: (context, store, widget) {
           return Column(
             children: [
               const SizedBox(height: 10),
               Expanded(
                 child: GridView.builder(
-                  itemCount: tempoStore.tempoResult?.estados.length ?? 0,
+                  itemCount: tempoController.tempoResult?.estados.length ?? 0,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: MediaQuery.of(context).size.width /
@@ -52,9 +52,9 @@ class _InformationsPageState extends State<InformationsPage>
                   itemBuilder: (BuildContext context, int index) {
                     return InformationWidget(
                       theme: theme,
-                      image:
-                          getImagePath(tempoStore.tempoResult!.estados[index]),
-                      title: tempoStore.tempoResult!.estados[index],
+                      image: getImagePath(
+                          tempoController.tempoResult!.estados[index]),
+                      title: tempoController.tempoResult!.estados[index],
                     );
                   },
                 ),

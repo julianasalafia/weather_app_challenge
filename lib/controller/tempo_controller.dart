@@ -4,7 +4,7 @@ import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
 import '../app/models/informacoes_tempo_result.dart';
 import '../app/models/tempo_result.dart';
 
-class TempoStore with ChangeNotifier {
+class TempoController with ChangeNotifier {
   final IHttpService service;
   InformacoesTempoResult? informacoesTempoResult;
   TempoResult? tempoResult;
@@ -12,7 +12,7 @@ class TempoStore with ChangeNotifier {
   MapEntry<DiasSemanaEnum, Dia>? selectedDay;
   bool isRefreshing = false;
 
-  TempoStore({required this.service});
+  TempoController({required this.service});
 
   Future<void> loadInformacaoTempoResult() async {
     final result = await service.post(url: 'informacoes_do_tempo');

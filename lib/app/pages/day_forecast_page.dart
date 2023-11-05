@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../../store/tempo_store.dart';
+import '../../controller/tempo_controller.dart';
 import '../widgets/state_temperature_small_widget.dart';
 import '../widgets/temperature_date_widget.dart';
 import '../widgets/temperature_small_widget.dart';
@@ -19,7 +19,7 @@ class DayForecastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Consumer<TempoStore>(builder: (context, store, widget) {
+    return Consumer<TempoController>(builder: (context, store, widget) {
       final day = store.selectedDay!;
       return Scaffold(
         appBar: AppBarWidget(
