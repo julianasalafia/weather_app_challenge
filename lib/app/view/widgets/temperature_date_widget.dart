@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
 import 'package:weather_app_challenge/app/utils/extensions/date_time_extension.dart';
 
-import '../../models/informacoes_tempo_result.dart';
+import '../../models/information_weather_result.dart';
 
 class TemperatureDateWidget extends StatelessWidget
-    with InformacoesTempoHelper {
+    with InformationWeatherHelper {
   final ThemeData theme;
-  final MapEntry<DiasSemanaEnum, Dia> dia;
+  final MapEntry<DaysWeekEnum, Day> day;
 
   const TemperatureDateWidget({
     super.key,
     required this.theme,
-    required this.dia,
+    required this.day,
   });
 
   @override
   Widget build(BuildContext context) {
-    final periodo = dia.value.getPeriodoNow();
+    final period = day.value.getPeriodNow();
     return Column(
       children: [
         const SizedBox(height: 20),
         Text(
-          dia.key.nome,
+          day.key.label,
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 12,
           ),
@@ -31,12 +31,12 @@ class TemperatureDateWidget extends StatelessWidget
         SizedBox(
           height: 150,
           child: Image.asset(
-            getImagePath(periodo.value.tempo),
+            getImagePath(period.value.weather),
             fit: BoxFit.contain,
           ),
         ),
         Text(
-          '${periodo.value.graus}º',
+          '${period.value.degrees}º',
           style: theme.appBarTheme.titleTextStyle?.copyWith(
             fontSize: 81,
           ),

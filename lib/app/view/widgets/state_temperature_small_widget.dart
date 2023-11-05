@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
 
-import '../../models/informacoes_tempo_result.dart';
+import '../../models/information_weather_result.dart';
 import '../../utils/app_colors.dart';
 
 class StateTemperatureSmallWidget extends StatelessWidget
-    with InformacoesTempoHelper {
-  final Estado state;
+    with InformationWeatherHelper {
+  final StateInfo state;
   final ThemeData theme;
 
   const StateTemperatureSmallWidget({
@@ -18,7 +18,7 @@ class StateTemperatureSmallWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final day = state.getToday();
-    final period = day!.periodos.values.first;
+    final period = day!.periods.values.first;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -44,7 +44,7 @@ class StateTemperatureSmallWidget extends StatelessWidget
               children: [
                 Expanded(
                   child: Image.asset(
-                    getImagePath(period.tempo),
+                    getImagePath(period.weather),
                     width: 37,
                     height: 30,
                   ),
@@ -52,14 +52,14 @@ class StateTemperatureSmallWidget extends StatelessWidget
                 Expanded(
                   flex: 2,
                   child: Text(
-                    state.estado,
+                    state.state,
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),
                 ),
                 Expanded(
                   child: Text(
-                    '${period.graus}º',
+                    '${period.degrees}º',
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),

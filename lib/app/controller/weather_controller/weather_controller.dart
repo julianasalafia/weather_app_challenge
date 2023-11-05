@@ -1,47 +1,47 @@
 import 'package:flutter/material.dart';
 
-import '../../models/informacoes_tempo_result.dart';
-import '../../models/tempo_result.dart';
+import '../../models/information_weather_result.dart';
+import '../../models/weather_result.dart';
 import '../http_controller/i_http_service.dart';
 
 class WeatherController with ChangeNotifier {
   final IHttpService service;
-  InformacoesTempoResult? informacoesTempoResult;
-  TempoResult? tempoResult;
-  Estado? selectedState;
-  MapEntry<DiasSemanaEnum, Dia>? selectedDay;
+  InformationWeatherResult? informationWeatherResult;
+  WeatherResult? weatherResult;
+  StateInfo? selectedState;
+  MapEntry<DaysWeekEnum, Day>? selectedDay;
   bool isRefreshing = false;
   bool isLoading = false;
 
   WeatherController({required this.service});
 
-  Future<void> loadInformacaoTempoResult() async {
+  Future<void> loadInformationWeatherResult() async {
     isLoading = true;
     await Future.delayed(const Duration(seconds: 2));
 
     final result = await service.post(url: 'informacoes_do_tempo');
-    informacoesTempoResult = InformacoesTempoResult.fromJson(result.data);
-    if (selectedState == null && informacoesTempoResult != null) {
-      selectedState = informacoesTempoResult?.estados.first;
-      selectedDay = selectedState!.dias.entries.first;
+    informationWeatherResult = InformationWeatherResult.fromJson(result.data);
+    if (selectedState == null && informationWeatherResult != null) {
+      selectedState = informationWeatherResult?.states.first;
+      selectedDay = selectedState!.days.entries.first;
     }
     isLoading = false;
     notifyListeners();
   }
 
-  Future<void> loadTempoResult() async {
+  Future<void> loadWeatherResult() async {
     final result = await service.post(url: 'tempo');
-    tempoResult = TempoResult.fromJson(result.data);
+    weatherResult = WeatherResult.fromJson(result.data);
 
     notifyListeners();
   }
 
-  void onSelectState(Estado state) {
+  void onSelectState(StateInfo state) {
     selectedState = state;
     notifyListeners();
   }
 
-  void onSelectDay(MapEntry<DiasSemanaEnum, Dia> day) {
+  void onSelectDay(MapEntry<DaysWeekEnum, Day> day) {
     selectedDay = day;
     notifyListeners();
   }
@@ -51,7 +51,7 @@ class WeatherController with ChangeNotifier {
     notifyListeners();
 
     await Future.delayed(const Duration(seconds: 2));
-    loadInformacaoTempoResult();
+    loadInformationWeatherResult();
     isRefreshing = false;
     notifyListeners();
   }

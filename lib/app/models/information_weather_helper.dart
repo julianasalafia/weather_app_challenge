@@ -5,7 +5,7 @@ const snow = 'neve';
 const storm = 'tempestade';
 const thunder = 'trovão';
 
-mixin InformacoesTempoHelper {
+mixin InformationWeatherHelper {
   String getImagePath(String weather) => switch (weather.toLowerCase()) {
         sun => 'assets/images/sun.png',
         cloudy => 'assets/images/cloudy.png',

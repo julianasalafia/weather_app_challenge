@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
 
-import '../../models/informacoes_tempo_result.dart';
+import '../../models/information_weather_result.dart';
 
 class DayWeatherTemperatureWidget extends StatelessWidget
-    with InformacoesTempoHelper {
-  final MapEntry<DiasSemanaEnum, Dia> dia;
+    with InformationWeatherHelper {
+  final MapEntry<DaysWeekEnum, Day> day;
   final VoidCallback onTap;
   final ThemeData theme;
 
   const DayWeatherTemperatureWidget({
     super.key,
     required this.theme,
-    required this.dia,
+    required this.day,
     required this.onTap,
   });
 
@@ -27,7 +27,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget
             Expanded(
               flex: 2,
               child: Text(
-                dia.key.nome,
+                day.key.label,
                 style: theme.appBarTheme.titleTextStyle?.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -37,7 +37,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget
             Expanded(
               flex: 2,
               child: Image.asset(
-                getImagePath(dia.value.periodos.values.toList()[1].tempo),
+                getImagePath(day.value.periods.values.toList()[1].weather),
                 height: 40,
                 width: 55,
               ),
@@ -45,7 +45,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget
             Expanded(
               flex: 3,
               child: Text(
-                dia.value.periodos.values.toList()[1].tempo,
+                day.value.periods.values.toList()[1].weather,
                 style: theme.appBarTheme.titleTextStyle?.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -54,7 +54,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget
             ),
             Expanded(
               child: Text(
-                '${dia.value.periodos.values.toList()[1].graus}º',
+                '${day.value.periods.values.toList()[1].degrees}º',
                 style: theme.appBarTheme.titleTextStyle?.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,

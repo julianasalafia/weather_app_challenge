@@ -34,28 +34,27 @@ class WeekForecastPage extends StatelessWidget {
               Text(state.getTodayName(),
                   style: theme.appBarTheme.titleTextStyle),
               WeatherTemperatureWidget(
-                  theme: theme,
-                  periodo: state.getToday()!.getPeriodoNow().value),
+                  theme: theme, period: state.getToday()!.getPeriodNow().value),
               const SizedBox(height: 50),
               // DayWeatherTemperatureWidget(theme: theme),
               Expanded(
                 child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: state.dias.length,
+                    itemCount: state.days.length,
                     itemBuilder: (BuildContext context, int index) {
                       final currentDay = DateTime.now().weekday - 1;
                       final listBefore =
-                          state.dias.entries.toList().sublist(0, currentDay);
+                          state.days.entries.toList().sublist(0, currentDay);
 
                       final listAfter =
-                          state.dias.entries.toList().sublist(currentDay);
+                          state.days.entries.toList().sublist(currentDay);
 
                       final sortedList = [...listAfter, ...listBefore];
 
                       final day = sortedList[index];
                       return DayWeatherTemperatureWidget(
                         theme: theme,
-                        dia: day,
+                        day: day,
                         onTap: () {
                           store.onSelectDay(day);
                           onDayTapped();

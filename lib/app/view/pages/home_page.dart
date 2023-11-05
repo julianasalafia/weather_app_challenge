@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
 import 'package:weather_app_challenge/app/utils/app_colors.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
+class _HomePageState extends State<HomePage> with InformationWeatherHelper {
   late WeatherController tempoStore;
 
   @override
@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
     super.initState();
     tempoStore = context.read();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      tempoStore.loadInformacaoTempoResult();
-      tempoStore.loadTempoResult();
+      tempoStore.loadInformationWeatherResult();
+      tempoStore.loadWeatherResult();
     });
   }
 
@@ -48,22 +48,22 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
                     child: ListView.builder(
                       shrinkWrap: true,
                       itemCount:
-                          store.informacoesTempoResult?.estados.length ?? 0,
+                          store.informationWeatherResult?.states.length ?? 0,
                       itemBuilder: (BuildContext context, int index) {
                         return HomePageWeatherWidget(
                           image: getImagePath(store
-                                  .informacoesTempoResult?.estados[index]
+                                  .informationWeatherResult?.states[index]
                                   .getToday()
-                                  ?.getPeriodoNow()
+                                  ?.getPeriodNow()
                                   .value
-                                  .tempo ??
+                                  .weather ??
                               ''),
-                          state: store.informacoesTempoResult?.estados[index]
-                                  .estado ??
+                          state: store.informationWeatherResult?.states[index]
+                                  .state ??
                               '',
                           onTap: () {
                             store.onSelectState(
-                                store.informacoesTempoResult!.estados[index]);
+                                store.informationWeatherResult!.states[index]);
                             widget.onStateTapped();
                           },
                         );

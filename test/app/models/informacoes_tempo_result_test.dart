@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_result.dart';
+import 'package:weather_app_challenge/app/models/information_weather_result.dart';
 
 import '../../mock/mock.dart';
 
@@ -9,9 +9,9 @@ void main() {
     const responseApi = mockResult;
 
     // act
-    final result = InformacoesTempoResult.fromJson(responseApi);
+    final result = InformationWeatherResult.fromJson(responseApi);
 
     // assert
-    expect(result, isA<InformacoesTempoResult>());
+    expect(result, isA<InformationWeatherResult>());
   });
 }

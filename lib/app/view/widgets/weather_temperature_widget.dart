@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_result.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_result.dart';
 
 import '../../utils/app_colors.dart';
 
 class WeatherTemperatureWidget extends StatelessWidget
-    with InformacoesTempoHelper {
-  final Periodo periodo;
+    with InformationWeatherHelper {
+  final Period period;
   final ThemeData theme;
 
   const WeatherTemperatureWidget({
     super.key,
     required this.theme,
-    required this.periodo,
+    required this.period,
   });
 
   @override
@@ -37,9 +37,9 @@ class WeatherTemperatureWidget extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             SizedBox(
-                height: 150, child: Image.asset(getImagePath(periodo.tempo))),
+                height: 150, child: Image.asset(getImagePath(period.weather))),
             Text(
-              '${periodo.graus}º',
+              '${period.degrees}º',
               style: theme.appBarTheme.titleTextStyle?.copyWith(fontSize: 55),
             ),
           ],

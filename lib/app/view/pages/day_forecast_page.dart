@@ -24,7 +24,7 @@ class DayForecastPage extends StatelessWidget {
       final day = store.selectedDay!;
       return Scaffold(
         appBar: AppBarWidget(
-          title: store.selectedState?.estado ?? 'Cidade',
+          title: store.selectedState?.state ?? 'Cidade',
           onTapButton: () {},
           onTapRefreshButton: store.refresh,
           isRefreshing: store.isRefreshing,
@@ -39,7 +39,7 @@ class DayForecastPage extends StatelessWidget {
               children: [
                 TemperatureDateWidget(
                   theme: theme,
-                  dia: store.selectedDay!,
+                  day: store.selectedDay!,
                 ),
                 Expanded(
                   child: Column(
@@ -58,14 +58,14 @@ class DayForecastPage extends StatelessWidget {
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: day.value.periodos.values.length,
+                          itemCount: day.value.periods.values.length,
                           itemBuilder: (BuildContext context, int index) {
-                            final periodo =
-                                day.value.periodos.entries.toList()[index];
+                            final period =
+                                day.value.periods.entries.toList()[index];
 
                             return TemperatureSmallWidget(
                               theme: theme,
-                              periodo: periodo,
+                              period: period,
                               onTap: onPeriodTap,
                             );
                           },
@@ -84,12 +84,13 @@ class DayForecastPage extends StatelessWidget {
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount:
-                              store.informacoesTempoResult?.estados.length ?? 0,
+                              store.informationWeatherResult?.states.length ??
+                                  0,
                           itemBuilder: (BuildContext context, int index) {
                             return StateTemperatureSmallWidget(
                               theme: theme,
                               state:
-                                  store.informacoesTempoResult!.estados[index],
+                                  store.informationWeatherResult!.states[index],
                             );
                           },
                         ),

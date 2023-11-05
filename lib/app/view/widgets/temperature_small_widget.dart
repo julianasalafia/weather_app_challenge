@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
-import 'package:weather_app_challenge/app/models/informacoes_tempo_result.dart';
+import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
+import 'package:weather_app_challenge/app/models/information_weather_result.dart';
 
 import '../../utils/app_colors.dart';
 
 class TemperatureSmallWidget extends StatelessWidget
-    with InformacoesTempoHelper {
+    with InformationWeatherHelper {
   final ThemeData theme;
-  final MapEntry<PeriodosEnum, Periodo> periodo;
+  final MapEntry<PeriodsEnum, Period> period;
   final VoidCallback onTap;
 
   const TemperatureSmallWidget({
     super.key,
     required this.theme,
-    required this.periodo,
+    required this.period,
     required this.onTap,
   });
 
@@ -44,19 +44,19 @@ class TemperatureSmallWidget extends StatelessWidget
                 children: [
                   const SizedBox(height: 20),
                   Text(
-                    periodo.key.nome,
+                    period.key.label,
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),
                   const SizedBox(height: 10),
                   Image.asset(
-                    getImagePath(periodo.value.tempo),
+                    getImagePath(period.value.weather),
                     width: 75,
                     height: 45,
                   ),
                   const SizedBox(height: 25),
                   Text(
-                    '${periodo.value.graus}º',
+                    '${period.value.degrees}º',
                     style: theme.appBarTheme.titleTextStyle
                         ?.copyWith(fontSize: 12),
                   ),
