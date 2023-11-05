@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
+import 'package:weather_app_challenge/app/utils/helpers/information_weather_helper.dart';
 
 import '../../models/information_weather_result.dart';
 import '../../utils/app_colors.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
+import 'package:weather_app_challenge/app/utils/helpers/information_weather_helper.dart';
 import 'package:weather_app_challenge/app/utils/app_colors.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';

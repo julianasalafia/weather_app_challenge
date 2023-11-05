@@ -1,4 +1,4 @@
-import 'package:weather_app_challenge/app/models/information_weather_helper.dart';
+import 'package:weather_app_challenge/app/utils/helpers/information_weather_helper.dart';
 
 class InformationWeatherResult with InformationWeatherHelper {
   final List<StateInfo> states;
