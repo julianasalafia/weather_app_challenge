@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/day.dart';
+import '../../models/days_week_enum.dart';
 import '../../models/information_weather_result.dart';
 import '../../models/state_info.dart';
 import '../../models/weather_result.dart';

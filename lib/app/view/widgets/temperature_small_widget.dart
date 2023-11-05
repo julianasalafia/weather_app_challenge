@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/utils/helpers/information_weather_helper.dart';
-import 'package:weather_app_challenge/app/models/information_weather_result.dart';
 import '../../models/period.dart';
+import '../../models/periods_enum.dart';
 import '../../utils/app_colors.dart';
 
 class TemperatureSmallWidget extends StatelessWidget

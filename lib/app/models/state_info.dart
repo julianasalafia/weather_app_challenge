@@ -1,5 +1,5 @@
 import 'day.dart';
-import 'information_weather_result.dart';
+import 'days_week_enum.dart';
 
 class StateInfo {
   final String state;

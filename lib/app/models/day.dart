@@ -1,5 +1,5 @@
 import 'package:weather_app_challenge/app/models/period.dart';
-import 'information_weather_result.dart';
+import 'package:weather_app_challenge/app/models/periods_enum.dart';
 
 class Day {
   final Map<PeriodsEnum, Period> periods;

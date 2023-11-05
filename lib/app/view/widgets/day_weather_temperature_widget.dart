@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/utils/helpers/information_weather_helper.dart';
 import '../../models/day.dart';
+import '../../models/days_week_enum.dart';
 import '../../models/information_weather_result.dart';
 
 class DayWeatherTemperatureWidget extends StatelessWidget
