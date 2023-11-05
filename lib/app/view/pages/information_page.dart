@@ -4,17 +4,18 @@ import 'package:weather_app_challenge/app/utils/helpers/information_weather_help
 import 'package:weather_app_challenge/app/view/widgets/app_bar_widget.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
+import '../../utils/constants.dart';
 import '../widgets/information_widget.dart';
 
-class InformationsPage extends StatefulWidget {
+class InformationPage extends StatefulWidget {
   final VoidCallback onItemTapped;
-  const InformationsPage({super.key, required this.onItemTapped});
+  const InformationPage({super.key, required this.onItemTapped});
 
   @override
-  State<InformationsPage> createState() => _InformationsPageState();
+  State<InformationPage> createState() => _InformationPageState();
 }
 
-class _InformationsPageState extends State<InformationsPage>
+class _InformationPageState extends State<InformationPage>
     with InformationWeatherHelper {
   late WeatherController weatherController;
 
@@ -33,7 +34,7 @@ class _InformationsPageState extends State<InformationsPage>
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBarWidget(
-        title: 'Informações',
+        title: informationsTitle,
         onTapButton: widget.onItemTapped,
         index: 3,
       ),

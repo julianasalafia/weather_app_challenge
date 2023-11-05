@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
+import '../../utils/constants.dart';
 import '../widgets/app_bar_widget.dart';
 import '../widgets/day_weather_temperature_widget.dart';
 import '../widgets/weather_temperature_widget.dart';
@@ -23,7 +24,7 @@ class WeekForecastPage extends StatelessWidget {
       final state = store.selectedState!;
       return Scaffold(
         appBar: AppBarWidget(
-          title: '7 Dias',
+          title: weekForecastTitle,
           onTapButton: onItemTapped,
           index: 1,
         ),

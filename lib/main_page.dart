@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'app/utils/app_colors.dart';
+import 'app/utils/constants.dart';
 import 'app/view/pages/day_forecast_page.dart';
 import 'app/view/pages/home_page.dart';
-import 'app/view/pages/informations_page.dart';
+import 'app/view/pages/information_page.dart';
 import 'app/view/pages/week_forecast_page.dart';
 import 'app/view/themes/dark/dark_theme.dart';
 
@@ -43,7 +44,7 @@ class _MainPageState extends State<MainPage> {
           onItemTapped: () => _onItemTapped(1),
           onPeriodTap: () => _onItemTapped(3),
         ),
-        InformationsPage(onItemTapped: () => _onItemTapped(2)),
+        InformationPage(onItemTapped: () => _onItemTapped(2)),
       ],
     );
   }
@@ -64,7 +65,7 @@ class _MainPageState extends State<MainPage> {
           currentIndex: _selectedIndex,
           items: [
             BottomNavigationBarItem(
-              label: 'Home',
+              label: homeLabel,
               icon: const Icon(Icons.home),
               activeIcon: Container(
                 height: 50,
@@ -87,7 +88,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Search',
+              label: searchLabel,
               icon: const Icon(Icons.search),
               activeIcon: Container(
                 height: 50,
@@ -110,7 +111,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Profile',
+              label: profileLabel,
               icon: const Icon(Icons.person_outline),
               activeIcon: Container(
                 height: 50,
@@ -133,7 +134,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              label: 'Alert',
+              label: alertLabel,
               icon: const Icon(Icons.notifications_none_outlined),
               activeIcon: Container(
                 height: 50,

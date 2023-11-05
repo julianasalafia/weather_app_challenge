@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
+import '../../utils/constants.dart';
 import '../widgets/app_bar_widget.dart';
 import '../widgets/state_temperature_small_widget.dart';
 import '../widgets/temperature_date_widget.dart';
@@ -24,7 +25,7 @@ class DayForecastPage extends StatelessWidget {
       final day = store.selectedDay!;
       return Scaffold(
         appBar: AppBarWidget(
-          title: store.selectedState?.state ?? 'Cidade',
+          title: store.selectedState?.state ?? cityTitle,
           onTapButton: () {},
           onTapRefreshButton: store.refresh,
           isRefreshing: store.isRefreshing,
@@ -49,7 +50,7 @@ class DayForecastPage extends StatelessWidget {
                         padding:
                             const EdgeInsets.only(top: 30, bottom: 5, left: 10),
                         child: Text(
-                          'Hoje',
+                          todayTitle,
                           style: theme.appBarTheme.titleTextStyle
                               ?.copyWith(fontSize: 12),
                         ),
@@ -74,7 +75,7 @@ class DayForecastPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 5, left: 10),
                         child: Text(
-                          'Estados',
+                          statesTitle,
                           style: theme.appBarTheme.titleTextStyle
                               ?.copyWith(fontSize: 12),
                         ),

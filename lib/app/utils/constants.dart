@@ -14,3 +14,17 @@ const kPaddingHorizontal = 10.0;
 const toolbarSearchTitle = 'Search for City';
 const toolbarWeekStatusTitle = '7 Dias';
 const toolbarInformationTitle = 'Informações';
+
+// TEXTS
+const homeTitle = 'Search for City';
+const statesTitle = 'Estados';
+const weekForecastTitle = '7 Dias';
+const informationsTitle = 'Informações';
+const todayTitle = 'Hoje';
+const cityTitle = 'Cidade';
+
+// BOTTOM NAVIGATION BAR
+const homeLabel = 'Home';
+const searchLabel = 'Search';
+const profileLabel = 'Profile';
+const alertLabel = 'Alert';

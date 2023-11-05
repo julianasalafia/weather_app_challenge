@@ -4,6 +4,7 @@ import 'package:weather_app_challenge/app/utils/helpers/information_weather_help
 import 'package:weather_app_challenge/app/utils/app_colors.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
+import '../../utils/constants.dart';
 import '../widgets/app_bar_widget.dart';
 import '../widgets/home_page_weather_widget.dart';
 
@@ -16,15 +17,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with InformationWeatherHelper {
-  late WeatherController tempoStore;
+  late WeatherController weatherController;
 
   @override
   void initState() {
     super.initState();
-    tempoStore = context.read();
+    weatherController = context.read();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      tempoStore.loadInformationWeatherResult();
-      tempoStore.loadWeatherResult();
+      weatherController.loadInformationWeatherResult();
+      weatherController.loadWeatherResult();
     });
   }
 
@@ -32,8 +33,10 @@ class _HomePageState extends State<HomePage> with InformationWeatherHelper {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        title: 'Search for City',
-        onTapButton: () {},
+        title: homeTitle,
+        onTapButton: () {
+          // none
+        },
         index: 0,
       ),
       backgroundColor: Colors.transparent,
