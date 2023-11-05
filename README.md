@@ -3,7 +3,7 @@
 
  Desafio técnico para processo seletivo.
 
-**Como vai funcionar?** 
+### Como vai funcionar?
 Deve ser desenvolvido um Aplicativo utilizando Flutter. Para esse desenvolvimento vamos disponibilizar um link FIGMA que será utilizado para design do App e um JSON onde estará as informações sobre o Backend. 
 
 **Regras:** 
