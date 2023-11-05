@@ -11,17 +11,21 @@ class WeatherController with ChangeNotifier {
   Estado? selectedState;
   MapEntry<DiasSemanaEnum, Dia>? selectedDay;
   bool isRefreshing = false;
+  bool isLoading = false;
 
   WeatherController({required this.service});
 
   Future<void> loadInformacaoTempoResult() async {
+    isLoading = true;
+    await Future.delayed(const Duration(seconds: 2));
+
     final result = await service.post(url: 'informacoes_do_tempo');
     informacoesTempoResult = InformacoesTempoResult.fromJson(result.data);
     if (selectedState == null && informacoesTempoResult != null) {
       selectedState = informacoesTempoResult?.estados.first;
       selectedDay = selectedState!.dias.entries.first;
     }
-
+    isLoading = false;
     notifyListeners();
   }
 

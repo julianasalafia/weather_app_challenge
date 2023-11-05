@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/utils/app_colors.dart';
 
 import '../../controller/weather_controller/weather_controller.dart';
 import '../widgets/app_bar_widget.dart';
@@ -37,35 +38,40 @@ class _HomePageState extends State<HomePage> with InformacoesTempoHelper {
       ),
       backgroundColor: Colors.transparent,
       body: Consumer<WeatherController>(builder: (context, store, _) {
-        return Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: store.informacoesTempoResult?.estados.length ?? 0,
-                itemBuilder: (BuildContext context, int index) {
-                  return HomePageWeatherWidget(
-                    image: getImagePath(store
-                            .informacoesTempoResult?.estados[index]
-                            .getToday()
-                            ?.getPeriodoNow()
-                            .value
-                            .tempo ??
-                        ''),
-                    state:
-                        store.informacoesTempoResult?.estados[index].estado ??
-                            '',
-                    onTap: () {
-                      store.onSelectState(
-                          store.informacoesTempoResult!.estados[index]);
-                      widget.onStateTapped();
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        );
+        return store.isLoading
+            ? const Center(
+                child: CircularProgressIndicator(color: AppColors.lightPurple),
+              )
+            : Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount:
+                          store.informacoesTempoResult?.estados.length ?? 0,
+                      itemBuilder: (BuildContext context, int index) {
+                        return HomePageWeatherWidget(
+                          image: getImagePath(store
+                                  .informacoesTempoResult?.estados[index]
+                                  .getToday()
+                                  ?.getPeriodoNow()
+                                  .value
+                                  .tempo ??
+                              ''),
+                          state: store.informacoesTempoResult?.estados[index]
+                                  .estado ??
+                              '',
+                          onTap: () {
+                            store.onSelectState(
+                                store.informacoesTempoResult!.estados[index]);
+                            widget.onStateTapped();
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
       }),
     );
   }
