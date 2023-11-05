@@ -132,7 +132,6 @@ class Periodo {
   factory Periodo.fromJson(dynamic json) {
     return Periodo._(
       tempo: json['tempo'],
-      // tratar nulo aqui
       graus: json['graus']?.toString() ?? '0',
     );
   }

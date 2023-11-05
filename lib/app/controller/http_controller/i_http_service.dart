@@ -1,4 +1,4 @@
-import 'package:weather_app_challenge/app/services/http/response.dart';
+import 'response.dart';
 
 abstract class IHttpService {
   Future<Response> post({

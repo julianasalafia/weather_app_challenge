@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
-import '../models/informacoes_tempo_result.dart';
-import '../utils/app_colors.dart';
+
+import '../../models/informacoes_tempo_result.dart';
+import '../../utils/app_colors.dart';
 
 class StateTemperatureSmallWidget extends StatelessWidget
     with InformacoesTempoHelper {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app_challenge/app/utils/app_colors.dart';
 
-import '../../utils/constants.dart';
+import '../../../utils/constants.dart';
 
 class DarkTheme {
   static final theme = ThemeData(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
-import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../controller/tempo_controller.dart';
+import 'package:weather_app_challenge/app/view/widgets/app_bar_widget.dart';
+
+import '../../controller/weather_controller/weather_controller.dart';
 import '../widgets/information_widget.dart';
 
 class InformationsPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class InformationsPage extends StatefulWidget {
 
 class _InformationsPageState extends State<InformationsPage>
     with InformacoesTempoHelper {
-  late TempoController tempoController;
+  late WeatherController tempoController;
 
   @override
   void initState() {
@@ -36,7 +37,7 @@ class _InformationsPageState extends State<InformationsPage>
         onTapButton: widget.onItemTapped,
         index: 3,
       ),
-      body: Consumer<TempoController>(
+      body: Consumer<WeatherController>(
         builder: (context, store, widget) {
           return Column(
             children: [

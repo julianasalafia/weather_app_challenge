@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
-import 'package:weather_app_challenge/app/services/http/response.dart' as http;
+
+import 'i_http_service.dart';
+import 'response.dart' as http;
 
 class HttpServiceDio implements IHttpService {
   final Dio dio;

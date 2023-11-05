@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/controller/tempo_controller.dart';
-import '../utils/constants.dart';
+import 'package:weather_app_challenge/app/controller/weather_controller/weather_controller.dart';
+import 'package:weather_app_challenge/app/utils/app_colors.dart';
+
+import '../../utils/constants.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -27,7 +29,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: kPaddingHorizontal,
         ),
-        child: Consumer<TempoController>(builder: (context, store, _) {
+        child: Consumer<WeatherController>(builder: (context, store, _) {
           return Column(
             children: [
               const SizedBox(height: kSizedBoxHeight),
@@ -37,10 +39,19 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: isRefreshing
-                          ? const SizedBox(
-                              height: kIconSize,
-                              width: kIconSize,
-                              child: CircularProgressIndicator(),
+                          ? Container(
+                              alignment: Alignment.center,
+                              height: 50,
+                              width: 50,
+                              child: const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.lightPurple,
+                                  ),
+                                ),
+                              ),
                             )
                           : IconButton(
                               icon: Image.asset(

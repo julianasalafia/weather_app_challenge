@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 
-import '../models/informacoes_tempo_result.dart';
+import '../../models/informacoes_tempo_result.dart';
 
 class DayWeatherTemperatureWidget extends StatelessWidget
     with InformacoesTempoHelper {
@@ -43,7 +43,7 @@ class DayWeatherTemperatureWidget extends StatelessWidget
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Text(
                 dia.value.periodos.values.toList()[1].tempo,
                 style: theme.appBarTheme.titleTextStyle?.copyWith(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/extensions/date_time_extension.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
+import 'package:weather_app_challenge/app/utils/extensions/date_time_extension.dart';
 
-import '../models/informacoes_tempo_result.dart';
+import '../../models/informacoes_tempo_result.dart';
 
 class TemperatureDateWidget extends StatelessWidget
     with InformacoesTempoHelper {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
 
-import '../models/informacoes_tempo_result.dart';
-import '../models/tempo_result.dart';
+import '../../models/informacoes_tempo_result.dart';
+import '../../models/tempo_result.dart';
+import '../http_controller/i_http_service.dart';
 
-class TempoController with ChangeNotifier {
+class WeatherController with ChangeNotifier {
   final IHttpService service;
   InformacoesTempoResult? informacoesTempoResult;
   TempoResult? tempoResult;
@@ -12,7 +12,7 @@ class TempoController with ChangeNotifier {
   MapEntry<DiasSemanaEnum, Dia>? selectedDay;
   bool isRefreshing = false;
 
-  TempoController({required this.service});
+  WeatherController({required this.service});
 
   Future<void> loadInformacaoTempoResult() async {
     final result = await service.post(url: 'informacoes_do_tempo');

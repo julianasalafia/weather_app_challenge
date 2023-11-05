@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../controller/tempo_controller.dart';
+
+import '../../controller/weather_controller/weather_controller.dart';
+import '../widgets/app_bar_widget.dart';
 import '../widgets/day_weather_temperature_widget.dart';
 import '../widgets/weather_temperature_widget.dart';
 
@@ -18,7 +19,7 @@ class WeekForecastPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Consumer<TempoController>(builder: (context, store, _) {
+    return Consumer<WeatherController>(builder: (context, store, _) {
       final state = store.selectedState!;
       return Scaffold(
         appBar: AppBarWidget(

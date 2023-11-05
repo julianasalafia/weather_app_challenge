@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'app/pages/day_forecast_page.dart';
-import 'app/pages/home_page.dart';
-import 'app/pages/informations_page.dart';
-import 'app/pages/week_forecast_page.dart';
-import 'app/themes/dark/dark_theme.dart';
+
 import 'app/utils/app_colors.dart';
+import 'app/view/pages/day_forecast_page.dart';
+import 'app/view/pages/home_page.dart';
+import 'app/view/pages/informations_page.dart';
+import 'app/view/pages/week_forecast_page.dart';
+import 'app/view/themes/dark/dark_theme.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
