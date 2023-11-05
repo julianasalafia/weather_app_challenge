@@ -37,8 +37,8 @@ class TemperatureSmallWidget extends StatelessWidget
                   ],
                 ),
               ),
-              height: 155,
-              width: 115,
+              height: 145,
+              width: 109,
               child: Column(
                 children: [
                   const SizedBox(height: 20),

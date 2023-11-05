@@ -30,8 +30,9 @@ class DayForecastPage extends StatelessWidget {
           index: 2,
         ),
         body: SingleChildScrollView(
-          child: SizedBox(
+          child: Container(
             height: 750,
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

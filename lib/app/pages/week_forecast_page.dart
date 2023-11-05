@@ -26,30 +26,44 @@ class WeekForecastPage extends StatelessWidget {
           onTapButton: onItemTapped,
           index: 1,
         ),
-        body: Column(
-          children: [
-            Text(state.getTodayName(), style: theme.appBarTheme.titleTextStyle),
-            WeatherTemperatureWidget(
-                theme: theme, periodo: state.getToday()!.getPeriodoNow().value),
-            const SizedBox(height: 50),
-            // DayWeatherTemperatureWidget(theme: theme),
-            Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: state.dias.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final day = state.dias.entries.toList()[index];
-                    return DayWeatherTemperatureWidget(
-                      theme: theme,
-                      dia: day,
-                      onTap: () {
-                        store.onSelectDay(day);
-                        onDayTapped();
-                      },
-                    );
-                  }),
-            ),
-          ],
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Column(
+            children: [
+              Text(state.getTodayName(),
+                  style: theme.appBarTheme.titleTextStyle),
+              WeatherTemperatureWidget(
+                  theme: theme,
+                  periodo: state.getToday()!.getPeriodoNow().value),
+              const SizedBox(height: 50),
+              // DayWeatherTemperatureWidget(theme: theme),
+              Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state.dias.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final currentDay = DateTime.now().weekday - 1;
+                      final listBefore =
+                          state.dias.entries.toList().sublist(0, currentDay);
+
+                      final listAfter =
+                          state.dias.entries.toList().sublist(currentDay);
+
+                      final sortedList = [...listAfter, ...listBefore];
+
+                      final day = sortedList[index];
+                      return DayWeatherTemperatureWidget(
+                        theme: theme,
+                        dia: day,
+                        onTap: () {
+                          store.onSelectDay(day);
+                          onDayTapped();
+                        },
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
       );
     });
