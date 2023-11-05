@@ -10,3 +10,5 @@ Deve ser desenvolvido um Aplicativo utilizando Flutter. Para esse desenvolviment
 1) O candidato pode utilizar a arquitetura de sua escolha. 
 2) Deve ser utilizado o injetor de dependência PROVIDER. 
 3) Os valores não podem ser passados por parâmetro, deve ser gerenciado pelo gerenciador de estado e injetor de dependência. 
+
+![weatherapp](https://raw.githubusercontent.com/julianasalafia/weather_app_challenge/main/assets/gif/weather_app.gif)
