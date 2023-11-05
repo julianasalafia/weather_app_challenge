@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/models/informacoes_tempo_helper.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../../controller/tempo_controller.dart';
+import '../controller/tempo_controller.dart';
 import '../widgets/information_widget.dart';
 
 class InformationsPage extends StatefulWidget {

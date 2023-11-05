@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/widgets/app_bar_widget.dart';
-import '../../controller/tempo_controller.dart';
+import '../controller/tempo_controller.dart';
 import '../widgets/state_temperature_small_widget.dart';
 import '../widgets/temperature_date_widget.dart';
 import '../widgets/temperature_small_widget.dart';

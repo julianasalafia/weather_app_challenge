@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_challenge/app/services/http/i_http_service.dart';
 
-import '../app/models/informacoes_tempo_result.dart';
-import '../app/models/tempo_result.dart';
+import '../models/informacoes_tempo_result.dart';
+import '../models/tempo_result.dart';
 
 class TempoController with ChangeNotifier {
   final IHttpService service;
