@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../../models/day.dart';
 import '../../models/information_weather_result.dart';
+import '../../models/state_info.dart';
 import '../../models/weather_result.dart';
 import '../http_controller/i_http_service.dart';
 

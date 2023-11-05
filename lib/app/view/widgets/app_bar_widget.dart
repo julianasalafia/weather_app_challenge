@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app_challenge/app/controller/weather_controller/weather_controller.dart';
 import 'package:weather_app_challenge/app/utils/app_colors.dart';
-
 import '../../utils/constants.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
